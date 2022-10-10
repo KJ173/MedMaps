@@ -1,0 +1,53 @@
+console.log(num);
+        var Lat = '<?=$Lat?>';
+        Lat = JSON.parse(Lat);
+        var Long = '<?=$Long?>';
+        Long = JSON.parse(Long);
+        var Hospitalname = '<?=$Hospitalname?>';
+        Hospitalname = JSON.parse(Hospitalname);
+        var num = Number("<?=$i?>");
+        var count = 0;
+        //$n=0;
+
+        for(var j=0;j<num;j++){
+          console.log(Lat[j]);
+          console.log(Long[j]);
+          //count++;
+        }
+
+        //console.log(Lat[0]);
+        //console.log(Long[0]);
+        //var markers = [{coords,iconImage,content}];
+        console.log(Hospitalname.length);
+        var markers=[];
+        addMarker({coords:{lat:lati,lng:lngi},content:'You'});
+        for(var i=0;i<Hospitalname.length;i++)
+        {
+            markers[i] = {
+            coords:{lat:Number(Lat[i]),lng:Number(Long[i])},
+            iconImage:'https://img.icons8.com/color/48/000000/hospital-bed.png',
+            content:Hospitalname[i]
+            //console.log(Hospitalname[i]);
+          };
+          console.log(Hospitalname[i]);
+        }
+        /*var markers = [
+        {
+          coords:{lat:lati,lng:lngi},
+          content:'<h4>You</h4>'
+        },
+        {
+          coords:{lat:Number(Lat[0]), lng:Number(Long[0])},
+          iconImage: 'https://img.icons8.com/color/48/000000/hospital-bed.png',
+          content:Hospitalname[0]
+        },
+        {
+          coords:{lat:Number(Lat[1]), lng:Number(Long[1])},
+          iconImage: 'https://img.icons8.com/color/48/000000/hospital-bed.png',
+          content:Hospitalname[1]
+        }
+      ];*/
+        console.log(markers.length);
+        for(var i=0;i<markers.length;i++){
+          addMarker(markers[i]);
+        }
